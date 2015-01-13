@@ -69,6 +69,7 @@ class Example:
 
 descriptor = Descriptor(
     name = "Fancy Spaceship",
+    #host = "localhost",
     port = 1234,
     blocks = get_decorated_blocks_from_class(Example),
     menus = dict(

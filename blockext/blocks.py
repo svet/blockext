@@ -226,9 +226,12 @@ class Language(object):
 
 
 class Descriptor(object):
-    def __init__(self, name, port, blocks, menus=None, translations=None):
+    def __init__(self, name, port, blocks, menus=None, translations=None, host='localhost'):
         self.name = str(name)
         """Human-readable name of the hardware."""
+
+        self.host = str(host)
+        """Host the extension runs on."""
 
         self.port = int(port)
         """Port the extension runs on."""
