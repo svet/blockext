@@ -21,7 +21,7 @@ class Program(object):
     @classmethod
     def get_filename(cls, descriptor, lang):
         language = language_codes.get(lang) or lang
-        fmt = "{cls.name} {descriptor.name} {language}.{cls.file_extension}"
+        fmt = "{cls.name}_{descriptor.name}_{language}.{cls.file_extension}"
         return fmt.format(**locals())
 
     @classmethod
@@ -138,7 +138,7 @@ def generate_snap(descriptor, language):
         http_block = Element("block", s="reportURL")
         join_block = SubElement(http_block, "block", s="reportJoinWords")
         list_ = SubElement(join_block, "list")
-        url = "localhost:{descriptor.port}/{block.selector}".format(**vars())
+        url = "{descriptor.host}:{descriptor.port}/{block.selector}".format(**vars())
         if block.is_blocking:
             url += "/-" # Blank request id
         SubElement(list_, "l").text = url
