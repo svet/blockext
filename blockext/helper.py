@@ -208,10 +208,9 @@ class Extension(object):
             self._blocks_by_selector[block.selector] = block
 
     def run_forever(self, debug=False):
-        host = "localhost"
         app = HelperApp(self.helper_cls, self._blocks_by_selector,
                         self.descriptor, debug)
-        server = Server(app, host, self.descriptor.port)
-        print("Listening on {host}:{self.descriptor.port}".format(**vars()))
+        server = Server(app, self.descriptor.host, self.descriptor.port)
+        print("Listening on {self.descriptor.host}:{self.descriptor.port}".format(**vars()))
         server.serve_forever()
 
