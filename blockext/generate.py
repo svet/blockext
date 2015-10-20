@@ -101,7 +101,7 @@ def generate_snap(descriptor, language):
     for block in descriptor.blocks:
         defn = SubElement(root, "block-definition", {
             "type": "%s" % block.shape, # Can't use a future.builtins.str
-            "category": "sensing",
+            "category": block.category,
         })
 
         if block.help_text:

@@ -6,12 +6,11 @@ import os
 import re
 
 
-
 class Block(object):
     _highest_id = 0
 
     def __init__(self, selector, shape, parts_or_spec, is_blocking=False,
-            help_text="", defaults=[]):
+            help_text="", defaults=[], category="other"):
         self.shape = str(shape)
         """A string determining the kind of values the block reports.
 
@@ -40,6 +39,7 @@ class Block(object):
         self.help_text = str(help_text)
         """Text explaining the block to a Scratch user."""
 
+        self.category = category
         self.translations = {}
 
     @property
